@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -42,14 +43,21 @@ class _SignInScreenState extends State<SignInScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Sign in",
-                            style: GoogleFonts.rubik(
-                              fontSize: 38,
-                              fontWeight: FontWeight.bold,
+                        children: [AnimatedTextKit(
+                          pause: const Duration(milliseconds: 1000),
+                          repeatForever: true,
+                          animatedTexts: [
+                            TyperAnimatedText(
+                              "Sign in",
+                              speed: const Duration(milliseconds: 300),
+                              textStyle: GoogleFonts.rubik(
+                                fontSize: 38,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
+                          ],
+                        ),
+
                           Padding(
                             padding: const EdgeInsets.only(top: 6.0),
                             child: Container(
