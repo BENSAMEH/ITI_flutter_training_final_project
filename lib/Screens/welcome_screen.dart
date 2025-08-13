@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Screens/signin_screen.dart';
@@ -12,7 +13,9 @@ class WelcomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(height: 600,width: double.infinity,
+            Container(
+              height: 600,
+              width: double.infinity,
               child: Image.asset(
                 'assets/images/Vector.png',
                 fit: BoxFit.cover,
@@ -28,9 +31,19 @@ class WelcomeScreen extends StatelessWidget {
                   Positioned(
                     top: 30,
                     left: 30,
-                    child: Text(
-                      "welcome".toUpperCase(),
-                      style: GoogleFonts.rubik(fontSize: 40,fontWeight: FontWeight.w500),
+                    child: AnimatedTextKit(
+                      pause: const Duration(milliseconds: 1000),
+                      repeatForever: true,
+                      animatedTexts: [
+                        TyperAnimatedText(
+                          "Welcome !",
+                          speed: const Duration(milliseconds: 300),
+                          textStyle: GoogleFonts.rubik(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Positioned(
@@ -67,9 +80,15 @@ class WelcomeScreen extends StatelessWidget {
                           height: 3,
                           width: 10,
                         ),
-                        GestureDetector(onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) =>SignInScreen() ,));
-                        },
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignInScreen(),
+                              ),
+                            );
+                          },
                           child: CircleAvatar(
                             backgroundColor: Colors.red.shade300,
                             child: Icon(
