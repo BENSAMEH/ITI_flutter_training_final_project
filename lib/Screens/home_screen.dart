@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:login_ui_firebase_auth/Api/api_provider.dart';
-import 'package:login_ui_firebase_auth/Models/product_model.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
-import 'package:login_ui_firebase_auth/Screens/details_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
 import '../Components/product_item_widget.dart';
+import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-
-  final Future<ProductsModel> productsModel = ApiProvider().getAllProducts();
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => DevInfo()),
             );
           },
-          icon: Icon(Icons.person_pin),
+          icon: const Icon(Icons.person_pin),
         ),
         actions: [
           IconButton(
@@ -34,9 +33,9 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => AboutAppScreen()),
               );
             },
-            icon: Icon(Icons.question_mark),
+            icon: const Icon(Icons.question_mark),
           ),
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
         ],
       ),
       backgroundColor: Colors.white,
@@ -67,34 +66,38 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
+
             Expanded(
-              child: FutureBuilder<ProductsModel>(
-                future: productsModel,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return Center(child: Text("Error: ${snapshot.error}"));
-                  } else if (!snapshot.hasData ||
-                      snapshot.data!.products.isEmpty) {
-                    return const Center(child: Text("No products found"));
+              child: BlocConsumer<ProductsCubit, ProductsState>(
+                listener: (context, state) {
+                  if (state is ProductsError) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.errorMessage)),
+                    );
                   }
-
-                  final products = snapshot.data!.products;
-
-                  return GridView.builder(
-                    itemCount: products.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
-                          childAspectRatio: .75,
-                        ),
-                    itemBuilder: (context, index) {
-                      return ProductItemWidget(product: products[index]);
-                    },
-                  );
+                },
+                builder: (context, state) {
+                  if (state is ProductsLoading) {
+                    return const Center(child: CircularProgressIndicator(color: Color(0xffff8383),));
+                  } else if (state is ProductsError) {
+                    return Center(child: Text("Error: ${state.errorMessage}"));
+                  } else if (state is ProductsDone) {
+                    final products = state.productsModel.products;
+                    return GridView.builder(
+                      itemCount: products.length,
+                      gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        childAspectRatio: .75,
+                      ),
+                      itemBuilder: (context, index) {
+                        return ProductItemWidget(product: products[index]);
+                      },
+                    );
+                  }
+                  return const SizedBox();
                 },
               ),
             ),
