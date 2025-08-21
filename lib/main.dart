@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_ui_firebase_auth/Screens/welcome_screen.dart';
@@ -16,8 +16,6 @@ void main() async {
         BlocProvider(
           create: (context) => ProductsCubit()..getProducts(),
         ),
-        // لو عايز تضيف Cubit تاني ضيفه هنا 👇
-        // BlocProvider(create: (context) => AuthCubit()),
       ],
       child: const MyApp(),
     ),
