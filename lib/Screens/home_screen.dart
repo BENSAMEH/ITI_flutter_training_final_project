@@ -9,6 +9,8 @@ import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
+import 'cart_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -31,6 +33,15 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
+                MaterialPageRoute(builder: (context) => CartScreen()),
+              );
+            },
+            icon: Icon(Icons.shopping_cart),
+          ),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
                 MaterialPageRoute(builder: (context) => AboutAppScreen()),
               );
             },
@@ -45,21 +56,24 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HeadTitle(title: "Products",lineWidth: 60,),
-
+            HeadTitle(title: "Products", lineWidth: 60),
 
             Expanded(
               child: BlocConsumer<ProductsCubit, ProductsState>(
                 listener: (context, state) {
                   if (state is ProductsError) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text(state.errorMessage)),
-                    );
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
                   }
                 },
                 builder: (context, state) {
                   if (state is ProductsLoading) {
-                    return const Center(child: CircularProgressIndicator(color: Color(0xffff8383),));
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: Color(0xffff8383),
+                      ),
+                    );
                   } else if (state is ProductsError) {
                     return Center(child: Text("Error: ${state.errorMessage}"));
                   } else if (state is ProductsDone) {
@@ -67,12 +81,12 @@ class HomeScreen extends StatelessWidget {
                     return GridView.builder(
                       itemCount: products.length,
                       gridDelegate:
-                      const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                        childAspectRatio: .75,
-                      ),
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                            childAspectRatio: .75,
+                          ),
                       itemBuilder: (context, index) {
                         return ProductItemWidget(product: products[index]);
                       },
