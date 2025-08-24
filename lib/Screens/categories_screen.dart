@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Models/category_model.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,21 +39,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Categories",
-                    style: GoogleFonts.rubik(
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Container(
-                    color: const Color(0xffff8383),
-                    width: 80,
-                    height: 4,
-                  ),
-                  const SizedBox(height: 20),
+                children: [HeadTitle(title: "Categories", lineWidth: 60),
+
+                  const SizedBox(height: 10),
                   Expanded(
                     child: GridView.builder(
                       gridDelegate:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Components/head_title.dart';
 
 import '../Components/about_screen_bullet.dart';
 
@@ -21,23 +22,11 @@ class AboutAppScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 4.0, bottom: 16),
+              padding: const EdgeInsets.only( bottom: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Description !",
-                    style: GoogleFonts.rubik(
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Container(
-                    color: const Color(0xffff8383),
-                    width: 80,
-                    height: 4,
-                  ),
+                 HeadTitle(title: "Description !", lineWidth: 60)
                 ],
               ),
             ),

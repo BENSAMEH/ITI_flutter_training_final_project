@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
 import '../Components/product_item_widget.dart';
@@ -44,27 +45,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 4.0, bottom: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Products",
-                    style: GoogleFonts.rubik(
-                      fontSize: 38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Container(
-                    color: const Color(0xffff8383),
-                    width: 80,
-                    height: 4,
-                  ),
-                ],
-              ),
-            ),
+            HeadTitle(title: "Products",lineWidth: 60,),
 
 
             Expanded(

@@ -25,27 +25,19 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Row(
-          children: [
-            Expanded(
-              child: Text(
-                widget.product.title,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.rubik(
-                    fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(width: 10),
+        title:
+
+
             Text(
               widget.product.category,
               style: GoogleFonts.rubik(
-                  fontSize: 18,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                   color: Color(0xffff8383)),
             ),
-          ],
-        ),
-        centerTitle: true,
+
+
+        centerTitle: false,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/welcome_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -174,27 +175,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 19.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Profile",
-                                style: GoogleFonts.rubik(
-                                  fontSize: 38,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 6),
-                              Container(
-                                color: const Color(0xffff8383),
-                                width: 80,
-                                height: 4,
-                              ),
-                            ],
-                          ),
+                          padding: const EdgeInsets.only(left: 16.0),
+                          child: HeadTitle(title: "Profile", lineWidth: 60),
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 30),
                         buildTextField(
                           formIcon: const Icon(Icons.person_2_outlined),
                           label: 'Name',

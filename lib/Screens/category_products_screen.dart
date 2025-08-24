@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_products_cubit.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/Models/product_model.dart';
@@ -23,15 +24,7 @@ class CategoryProductsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                categoryName[0].toUpperCase() + categoryName.substring(1),
-                style: GoogleFonts.rubik(
-                  fontSize: 38,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 6),
-              Container(color: const Color(0xffff8383), width: 80, height: 4),
+              HeadTitle(title: categoryName[0].toUpperCase() + categoryName.substring(1), lineWidth: 60),
               const SizedBox(height: 20),
 
               Expanded(

@@ -26,7 +26,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 80, height: 4),
+                Container(color: const Color(0xffff8383), width:120, height: 4),
               ],
             ),
           ),
@@ -43,7 +43,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 80, height: 4),
+
               ],
             ),
           ),
@@ -60,7 +60,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 80, height: 4),
+
               ],
             ),
           ),
@@ -77,7 +77,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 80, height: 4),
+
               ],
             ),
           ),
@@ -94,7 +94,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 80, height: 4),
+
               ],
             ),
           ),
@@ -111,7 +111,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width: 50, height: 4),
+
               ],
             ),
           ),
