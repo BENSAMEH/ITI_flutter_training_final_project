@@ -15,6 +15,7 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ProductsCubit()..getProducts()),
         BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
+
       ],
       child: const MyApp(),
     ),

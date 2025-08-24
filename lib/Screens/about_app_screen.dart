@@ -52,7 +52,7 @@ class AboutAppScreen extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              "- This is a simple e-commerce Flutter app integrated with Firebase Authentication and Firestore, using real product data from dummyjson.com.",
+              "-" "This is a simple e-commerce Flutter app integrated with Firebase Authentication and Firestore, using real product data from dummyjson.com. The app also implements state management (Bloc/Cubit) to efficiently handle categories, products, and UI states. ",
               style: GoogleFonts.rubik(
                 fontSize: 16,fontWeight: FontWeight.w500,
                 color: const Color(0xff4b4b4b),
@@ -85,6 +85,7 @@ class AboutAppScreen extends StatelessWidget {
             ),
             bullet("Flutter (Frontend)"),
             bullet("Firebase Auth & Firestore"),
+            bullet("Cubit State Management"),
             bullet("Dio for HTTP requests"),
             bullet("REST API from dummyjson.com"),
             bullet("Google Fonts"),
