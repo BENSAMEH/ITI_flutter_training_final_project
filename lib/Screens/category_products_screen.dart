@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/cart_screen.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_products_cubit.dart';
@@ -18,8 +18,8 @@ class CategoryProductsScreen extends StatelessWidget {
       create: (context) =>
           CategoriesProductsCubit()..getCategoriyProducts(categoryName),
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
+        appBar: AppBar(elevation: 0,scrolledUnderElevation: 0,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           actions: [
             IconButton(
               onPressed: () {
@@ -54,9 +54,9 @@ class CategoryProductsScreen extends StatelessWidget {
                     >(
                       builder: (context, state) {
                         if (state is CategoriesProductsLoading) {
-                          return const Center(
+                          return Center(
                             child: CircularProgressIndicator(
-                              color: Color(0xffff8383),
+                              color: Theme.of(context).primaryColor,
                             ),
                           );
                         } else if (state is CategoriesProductsError) {

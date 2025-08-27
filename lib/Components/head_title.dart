@@ -23,7 +23,7 @@ class HeadTitle extends StatelessWidget {
           ),
           const SizedBox(height: 6),
           Container(
-            color: const Color(0xffff8383),
+            color: Theme.of(context).primaryColor,
             width: lineWidth,
             height: 4,
           ),

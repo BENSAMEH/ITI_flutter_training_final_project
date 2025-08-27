@@ -15,7 +15,6 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ProductsCubit()..getProducts()),
         BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
-
       ],
       child: const MyApp(),
     ),
@@ -28,6 +27,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(color: Colors.white),
+        primaryColor: Color(0xffff8383),
+      ),
       home: WelcomeScreen(),
       debugShowCheckedModeBanner: false,
     );

@@ -22,7 +22,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(backgroundColor: Colors.white,
+      child: Scaffold(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           child: Form(
             key: _formKey,
@@ -40,7 +40,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 6, bottom: 40),
-                    color: const Color(0xffff8383),
+                    color: Theme.of(context).primaryColor,
                     width: 80,
                     height: 4,
                   ),
@@ -68,12 +68,12 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                     onChanged: (val) => setState(() => selectedGender = val),
                     validator: (val) =>
                         val == null ? "Please select gender" : null,
-                    decoration: const InputDecoration(
+                    decoration:  InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
                       focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Color(0xffff8383)),
+                        borderSide: BorderSide(color: Theme.of(context).primaryColor),
                       ),
                     ),
                   ),
@@ -81,7 +81,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   const SizedBox(height: 60),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF8383),
+                      backgroundColor: Theme.of(context).primaryColor,
                       minimumSize: const Size(double.infinity, 60),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
@@ -135,7 +135,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
     }
   }
 }
-Widget buildField(
+Widget buildField (
     String label,
     TextEditingController controller,
     String hint, {

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:google_fonts/google_fonts.dart';
+
+
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
@@ -16,8 +17,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return Scaffold(backgroundColor:Theme.of(context).scaffoldBackgroundColor,
+      appBar: AppBar(elevation: 0,scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () {
@@ -26,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               MaterialPageRoute(builder: (context) => DevInfo()),
             );
           },
-          icon: const Icon(Icons.person_pin),
+          icon: const Icon(Icons.person_pin,color: Colors.black,),
         ),
         actions: [
           IconButton(
@@ -36,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => CartScreen()),
               );
             },
-            icon: Icon(Icons.shopping_cart),
+            icon: Icon(Icons.shopping_cart,color: Colors.black,),
           ),
           IconButton(
             onPressed: () {
@@ -45,12 +46,12 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => AboutAppScreen()),
               );
             },
-            icon: const Icon(Icons.question_mark),
+            icon: const Icon(Icons.question_mark_outlined,color: Colors.black,),
           ),
           const SizedBox(width: 20),
         ],
       ),
-      backgroundColor: Colors.white,
+
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
         child: Column(
@@ -69,9 +70,9 @@ class HomeScreen extends StatelessWidget {
                 },
                 builder: (context, state) {
                   if (state is ProductsLoading) {
-                    return const Center(
+                    return  Center(
                       child: CircularProgressIndicator(
-                        color: Color(0xffff8383),
+                        color: Theme.of(context).primaryColor,
                       ),
                     );
                   } else if (state is ProductsError) {

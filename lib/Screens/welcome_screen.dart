@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:login_ui_firebase_auth/Screens/signin_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -76,7 +77,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 10),
                         Container(
-                          color: Colors.red.shade300,
+                          color: Theme.of(context).primaryColor,
                           height: 3,
                           width: 10,
                         ),
@@ -90,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                             );
                           },
                           child: CircleAvatar(
-                            backgroundColor: Colors.red.shade300,
+                            backgroundColor: Theme.of(context).primaryColor,
                             child: Icon(
                               Icons.arrow_right_alt,
                               size: 40,

@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.grey.shade700,
         unselectedLabelStyle: GoogleFonts.rubik(fontWeight: FontWeight.w500),
         currentIndex: currentIndex,
-        backgroundColor: Color(0xFFFF8383),
+        backgroundColor: Theme.of(context).primaryColor,
         onTap: (value) {
           setState(() {
             currentIndex = value;

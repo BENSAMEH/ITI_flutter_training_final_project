@@ -7,7 +7,7 @@ class DevInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(backgroundColor: Colors.white),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,7 +26,7 @@ class DevInfo extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 6),
-                Container(color: const Color(0xffff8383), width:120, height: 4),
+                Container(color: Theme.of(context).primaryColor, width:120, height: 4),
               ],
             ),
           ),

@@ -3,39 +3,29 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../Models/product_model.dart';
 
-
 class DetailsScreen extends StatefulWidget {
   final Product product;
 
   const DetailsScreen({super.key, required this.product});
-
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
-
-
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title:
-
-
-            Text(
-              widget.product.category,
-              style: GoogleFonts.rubik(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xffff8383)),
-            ),
-
+        title: Text(
+          widget.product.category,
+          style: GoogleFonts.rubik(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
 
         centerTitle: false,
         backgroundColor: Colors.white,
@@ -43,10 +33,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back, color: Colors.black),
         ),
-       actions: [SizedBox(width: 15,)],
+        actions: [SizedBox(width: 15)],
       ),
       body: Column(
-        children: [SizedBox(height: 30,),
+        children: [
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             child: SizedBox(
@@ -56,7 +47,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   Container(
                     height: 200,
                     decoration: BoxDecoration(
-                      color:Color(0xffff8383),
+                      color: Theme.of(context).primaryColor,
                       shape: BoxShape.circle,
                     ),
                   ),
@@ -80,20 +71,21 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ],
               ),
             ),
-          ),SizedBox(height: 30,),
+          ),
+          SizedBox(height: 30),
           Text(
             widget.product.title,
-            style: GoogleFonts.rubik(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-            ),
+            style: GoogleFonts.rubik(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               widget.product.description,
-              style: GoogleFonts.rubik(fontSize: 18,fontWeight: FontWeight.w500),
+              style: GoogleFonts.rubik(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
               textAlign: TextAlign.center,
             ),
           ),
@@ -101,22 +93,35 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Price: ",
-                style: GoogleFonts.rubik(fontSize: 24),
-              ),
+              Text("Price: ", style: GoogleFonts.rubik(fontSize: 24)),
               Text(
                 "${widget.product.price} \$",
                 style: GoogleFonts.rubik(
                   fontSize: 24,
-                  color: Color(0xffff8383),
+                  color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-
-
+          SizedBox(height: 280),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              width: double.infinity,
+              height: 50,
+              child: Center(
+                child: Text(
+                  "Add To Cart",
+                  style: GoogleFonts.rubik(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

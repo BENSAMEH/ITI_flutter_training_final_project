@@ -30,7 +30,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         }
 
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -75,7 +75,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                   offset: const Offset(0, 3),
                                 ),
                               ],
-                              color: const Color(0xffff8383),
+                              color: Theme.of(context).primaryColor,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             padding: const EdgeInsets.all(12),

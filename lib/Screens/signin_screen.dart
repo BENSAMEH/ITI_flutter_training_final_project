@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Screens/home_page.dart';
@@ -26,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
-      child: Scaffold(backgroundColor: Colors.white,
+      child: Scaffold(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         resizeToAvoidBottomInset: true,
         body: Form(
           key: _formKey,
@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Padding(
                             padding: const EdgeInsets.only(top: 6.0),
                             child: Container(
-                              color: const Color(0xffff8383),
+                              color:  Theme.of(context).primaryColor ,
                               width: 80,
                               height: 4,
                             ),
@@ -106,9 +106,9 @@ class _SignInScreenState extends State<SignInScreen> {
                                   color: Colors.grey.shade300,
                                 ),
                               ),
-                              focusedBorder: const UnderlineInputBorder(
+                              focusedBorder:  UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xffff8383),
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               prefixIcon: Image.asset(
@@ -174,7 +174,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               ),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color(0xffff8383),
+                                  color: Theme.of(context).primaryColor,
                                 ),
                               ),
                               prefixIcon: Image.asset(
@@ -207,10 +207,10 @@ class _SignInScreenState extends State<SignInScreen> {
                               height: 20,
                               decoration: BoxDecoration(
                                 color: isChecked
-                                    ? Color(0xffff8383)
+                                    ? Theme.of(context).primaryColor
                                     : Colors.transparent,
                                 border: Border.all(
-                                  color: Color(0xffff8383),
+                                  color: Theme.of(context).primaryColor,
                                   width: 2,
                                 ),
                                 borderRadius: BorderRadius.circular(6),
@@ -237,7 +237,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             "Forgot Password?",
                             style: GoogleFonts.rubik(
                               fontSize: 15,
-                              color: Color(0xffff8383),
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -285,13 +285,13 @@ class _SignInScreenState extends State<SignInScreen> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xFFFF8383),
+                            color:Theme.of(context).primaryColor,
                           ),
                           child: Center(
                             child: Text(
                               "Login",
                               style: GoogleFonts.rubik(
-                                color: Color(0xFFF8F8FF),
+                                color: Colors.white,
                                 fontSize: 24,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -308,7 +308,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           Text(
                             "Don’t have an Account ?",
                             style: GoogleFonts.rubik(
-                              color: Color(0xFF9E9E9E),
+                              color: Colors.black,
                               fontSize: 20,
                             ),
                           ),
@@ -325,7 +325,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             child: Text(
                               "Sign up",
                               style: GoogleFonts.rubik(
-                                color: Color(0xFFFF8383),
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),

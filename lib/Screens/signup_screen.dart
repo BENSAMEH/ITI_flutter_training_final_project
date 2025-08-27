@@ -35,7 +35,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
-      child: Scaffold(backgroundColor: Colors.white,
+      child: Scaffold(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         resizeToAvoidBottomInset: true,
         body: Form(
           key: _formKey,
@@ -71,7 +71,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             margin: const EdgeInsets.only(top: 6),
                             width: 80,
                             height: 4,
-                            color: const Color(0xffff8383),
+                            color: Theme.of(context).primaryColor,
                           ),
                         ],
                       ),
@@ -178,13 +178,13 @@ class _SignupScreenState extends State<SignupScreen> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xFFFF8383),
+                            color: Theme.of(context).primaryColor,
                           ),
                           child: Center(
                             child: Text(
                               "Sign Up",
                               style: GoogleFonts.rubik(
-                                color: const Color(0xFFF8F8FF),
+                                color: Colors.white,
                                 fontSize: 24,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -202,7 +202,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           Text(
                             "Already have an Account ?",
                             style: GoogleFonts.rubik(
-                              color: const Color(0xFF9E9E9E),
+                              color: Colors.black,
                               fontSize: 20,
                             ),
                           ),
@@ -214,7 +214,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: Text(
                               "Login",
                               style: GoogleFonts.rubik(
-                                color: const Color(0xFFFF8383),
+                                color: Theme.of(context).primaryColor,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -264,8 +264,8 @@ class _SignupScreenState extends State<SignupScreen> {
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey.shade300),
               ),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xffff8383)),
+              focusedBorder:  UnderlineInputBorder(
+                borderSide: BorderSide(color:Theme.of(context).primaryColor),
               ),
               suffixIcon: isPassword
                   ? IconButton(

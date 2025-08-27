@@ -111,8 +111,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey.shade300),
               ),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(color: Color(0xffff8383)),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Theme.of(context).primaryColor),
               ),
               hintText: "Enter your $label",
               hintStyle: GoogleFonts.rubik(color: Colors.grey),
@@ -135,7 +135,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           DropdownButtonFormField<String>(
             value: selectedGender,
-            icon: Padding(padding: EdgeInsetsGeometry.only(right: 8),child: const Icon(Icons.wc)),
+            icon: Padding(
+              padding: EdgeInsetsGeometry.only(right: 8),
+              child: const Icon(Icons.wc),
+            ),
             items: ['Male', 'Female'].map((gender) {
               return DropdownMenuItem(value: gender, child: Text(gender));
             }).toList(),
@@ -161,11 +164,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? const Scaffold(backgroundColor: Colors.white,body: Center(child: CircularProgressIndicator()))
+        ? Scaffold(
+            backgroundColor:Theme.of(context).scaffoldBackgroundColor,
+            body: Center(child: CircularProgressIndicator()),
+          )
         : GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
 
-            child: Scaffold(backgroundColor: Colors.white,
+            child: Scaffold(
+              backgroundColor: Colors.white,
               body: SafeArea(
                 child: Form(
                   key: _formKey,
@@ -212,7 +219,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: const Color(0xFFFF8383),
+                                color: Theme.of(context).primaryColor,
                               ),
                               child: Center(
                                 child: Text(
