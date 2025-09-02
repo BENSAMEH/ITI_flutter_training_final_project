@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/welcome_screen.dart';
-import 'package:login_ui_firebase_auth/spin_kit.dart';
+import 'package:login_ui_firebase_auth/Components/spin_kit.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

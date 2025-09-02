@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Models/category_model.dart';
-import 'package:login_ui_firebase_auth/spin_kit.dart';
+import 'package:login_ui_firebase_auth/Components/spin_kit.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

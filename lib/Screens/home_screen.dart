@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
-import 'package:login_ui_firebase_auth/spin_kit.dart';
+import 'package:login_ui_firebase_auth/Components/spin_kit.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
