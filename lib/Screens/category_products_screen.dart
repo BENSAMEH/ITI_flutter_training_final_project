@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/cart_screen.dart';
+import 'package:login_ui_firebase_auth/spin_kit.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_products_cubit.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/Models/product_model.dart';
@@ -55,9 +56,7 @@ class CategoryProductsScreen extends StatelessWidget {
                       builder: (context, state) {
                         if (state is CategoriesProductsLoading) {
                           return Center(
-                            child: CircularProgressIndicator(
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            child: SpinKitItem()
                           );
                         } else if (state is CategoriesProductsError) {
                           return Center(child: Text(state.errorMessage));

@@ -43,187 +43,189 @@ class _SignupScreenState extends State<SignupScreen> {
             child: Center(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(vertical: 50),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 80),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 19.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [AnimatedTextKit(
-                          pause: const Duration(milliseconds: 1000),
-                          repeatForever: true,
-                          animatedTexts: [
-                            TyperAnimatedText(
-                              "Sign up",
-                              speed: const Duration(milliseconds: 300),
-                              textStyle: GoogleFonts.rubik(
-                                fontSize: 38,
-                                fontWeight: FontWeight.bold,
+                child: Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     
+                      Padding(
+                        padding: const EdgeInsets.only(left: 19.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [AnimatedTextKit(
+                            pause: const Duration(milliseconds: 1000),
+                            repeatForever: true,
+                            animatedTexts: [
+                              TyperAnimatedText(
+                                "Sign up",
+                                speed: const Duration(milliseconds: 300),
+                                textStyle: GoogleFonts.rubik(
+                                  fontSize: 38,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                  
+                  
+                            Container(
+                              margin: const EdgeInsets.only(top: 6),
+                              width: 80,
+                              height: 4,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                  
+                      // Email
+                      buildInputField(
+                        label: "Email",
+                        controller: emailController,
+                        hint: "enter your email",
+                        icon: Image.asset('assets/images/mailicon.png'),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email';
+                          } else if (!RegExp(
+                            r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
+                          ).hasMatch(value)) {
+                            return 'Enter a valid email';
+                          }
+                          return null;
+                        },
+                      ),
+                  
+                  
+                  
+                      // Password
+                      buildInputField(
+                        label: "Password",
+                        controller: passwordController,
+                        hint: "enter your password",
+                        icon: Image.asset(
+                          'assets/images/passwordicon.png',
+                          color: Colors.black45,
+                        ),
+                        isPassword: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          } else if (value.length < 6) {
+                            return 'Password must be at least 6 characters';
+                          }
+                          return null;
+                        },
+                      ),
+                  
+                      // Confirm Password
+                      buildInputField(
+                        label: "Confirm Password",
+                        controller: confirmPasswordController,
+                        hint: "re-enter your password",
+                        icon: Image.asset(
+                          'assets/images/passwordicon.png',
+                          color: Colors.black45,
+                        ),
+                        isPassword: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please confirm your password';
+                          } else if (value != passwordController.text) {
+                            return 'Passwords do not match';
+                          }
+                          return null;
+                        },
+                      ),
+                  
+                      const SizedBox(height: 80),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: GestureDetector(
+                          onTap: () async {
+                            if (_formKey.currentState!.validate()) {
+                              try {
+                                await FirebaseAuth.instance
+                                    .createUserWithEmailAndPassword(
+                                      email: emailController.text.trim(),
+                                      password: passwordController.text.trim(),
+                                    );
+                  
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Account created successfully'),
+                                  ),
+                                );
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (c) => const UserInfoScreen(),
+                                  ),
+                                );
+                              } on FirebaseAuthException catch (e) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      e.message ?? 'Something went wrong',
+                                    ),
+                                  ),
+                                );
+                              }
+                            }
+                          },
+                          child: Container(
+                            height: 60,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Sign Up",
+                                style: GoogleFonts.rubik(
+                                  color: Colors.white,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 50.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Already have an Account ?",
+                              style: GoogleFonts.rubik(
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "Login",
+                                style: GoogleFonts.rubik(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
                         ),
-
-
-                          Container(
-                            margin: const EdgeInsets.only(top: 6),
-                            width: 80,
-                            height: 4,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ],
                       ),
-                    ),
-                    const SizedBox(height: 50),
-
-                    // Email
-                    buildInputField(
-                      label: "Email",
-                      controller: emailController,
-                      hint: "enter your email",
-                      icon: Image.asset('assets/images/mailicon.png'),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
-                        } else if (!RegExp(
-                          r'^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$',
-                        ).hasMatch(value)) {
-                          return 'Enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
-
-
-
-                    // Password
-                    buildInputField(
-                      label: "Password",
-                      controller: passwordController,
-                      hint: "enter your password",
-                      icon: Image.asset(
-                        'assets/images/passwordicon.png',
-                        color: Colors.black45,
-                      ),
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        } else if (value.length < 6) {
-                          return 'Password must be at least 6 characters';
-                        }
-                        return null;
-                      },
-                    ),
-
-                    // Confirm Password
-                    buildInputField(
-                      label: "Confirm Password",
-                      controller: confirmPasswordController,
-                      hint: "re-enter your password",
-                      icon: Image.asset(
-                        'assets/images/passwordicon.png',
-                        color: Colors.black45,
-                      ),
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please confirm your password';
-                        } else if (value != passwordController.text) {
-                          return 'Passwords do not match';
-                        }
-                        return null;
-                      },
-                    ),
-
-                    const SizedBox(height: 80),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: GestureDetector(
-                        onTap: () async {
-                          if (_formKey.currentState!.validate()) {
-                            try {
-                              await FirebaseAuth.instance
-                                  .createUserWithEmailAndPassword(
-                                    email: emailController.text.trim(),
-                                    password: passwordController.text.trim(),
-                                  );
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Account created successfully'),
-                                ),
-                              );
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (c) => const UserInfoScreen(),
-                                ),
-                              );
-                            } on FirebaseAuthException catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    e.message ?? 'Something went wrong',
-                                  ),
-                                ),
-                              );
-                            }
-                          }
-                        },
-                        child: Container(
-                          height: 60,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Sign Up",
-                              style: GoogleFonts.rubik(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Already have an Account ?",
-                            style: GoogleFonts.rubik(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              "Login",
-                              style: GoogleFonts.rubik(
-                                color: Theme.of(context).primaryColor,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Models/category_model.dart';
+import 'package:login_ui_firebase_auth/spin_kit.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +23,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
         if (state is CategoriesLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: SpinKitItem());
         } else if (state is CategoriesDone) {
           categoryList = state.categoryModel;
         } else if (state is CategoriesError) {

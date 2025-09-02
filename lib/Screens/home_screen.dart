@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
+import 'package:login_ui_firebase_auth/spin_kit.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
@@ -71,9 +72,7 @@ class HomeScreen extends StatelessWidget {
                 builder: (context, state) {
                   if (state is ProductsLoading) {
                     return  Center(
-                      child: CircularProgressIndicator(
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      child: SpinKitItem()
                     );
                   } else if (state is ProductsError) {
                     return Center(child: Text("Error: ${state.errorMessage}"));
