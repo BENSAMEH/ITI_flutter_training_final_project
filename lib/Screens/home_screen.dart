@@ -21,15 +21,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(elevation: 0,scrolledUnderElevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => DevInfo()),
-            );
-          },
-          icon: const Icon(Icons.person_pin,color: Colors.black,),
-        ),
+        leading: IconButton(onPressed: () {
+          Scaffold.of(context).openDrawer();
+        }, icon: Icon(Icons.menu)),
         actions: [
           IconButton(
             onPressed: () {
@@ -40,15 +34,7 @@ class HomeScreen extends StatelessWidget {
             },
             icon: Icon(Icons.shopping_cart,color: Colors.black,),
           ),
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutAppScreen()),
-              );
-            },
-            icon: const Icon(Icons.question_mark_outlined,color: Colors.black,),
-          ),
+
           const SizedBox(width: 20),
         ],
       ),

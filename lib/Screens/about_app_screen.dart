@@ -26,7 +26,7 @@ class AboutAppScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 HeadTitle(title: "Description !", lineWidth: 60)
+                 HeadTitle(title: "About App!", lineWidth: 60)
                 ],
               ),
             ),

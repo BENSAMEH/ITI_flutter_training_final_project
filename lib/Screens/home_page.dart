@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 
 import 'package:login_ui_firebase_auth/Screens/categories_screen.dart';
+import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
 import 'package:login_ui_firebase_auth/Screens/home_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/profile_screen.dart';
+import 'package:login_ui_firebase_auth/Screens/welcome_screen.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -13,12 +18,112 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String ?userEmail;
+  String ?userName;
   int currentIndex = 1;
   List screens = [ProfileScreen(), HomeScreen(), CategoriesScreen()];
+  final currentUser = FirebaseAuth.instance.currentUser!;
+  @override
+  void initState() {
+    super.initState();
+    fetchUserData();
+  }
+
+  Future<void> fetchUserData() async {
+    try {
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(currentUser.uid)
+          .get();
+
+      final data = doc.data();
+      if (data != null) {print("Firestore data: ${doc.data()}");
+        setState(() {
+          userName = data['name'] ?? 'No Name';
+          userEmail = data['email'] ?? currentUser.email ?? 'No Email';
+        });
+        print("user name: $userName, user email: $userEmail");
+      }
+    } catch (e) {
+      print("Error fetching user data: $e");
+    }
+  }
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+          (route) => false,
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            // 🔹 Profile Section
+            GestureDetector(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),));
+            },
+              child: UserAccountsDrawerHeader(
+                accountName: Text(userName?.isNotEmpty == true ? userName! : "Loading...",style: GoogleFonts.rubik(fontSize: 20,fontWeight: FontWeight.bold),),
+                accountEmail: Text(userEmail?.isNotEmpty == true ? userEmail! : "Loading...",style: GoogleFonts.rubik(fontSize: 15,fontWeight: FontWeight.w600),),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(Icons.person, size: 40, color: Colors.blue),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+
+            // 🔹 Developer Info
+            ListTile(
+              leading: Icon(Icons.code, color: Colors.deepPurple),
+              title: Text("Developer Info"),
+              subtitle: Text("Flutter Developer"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DevInfo(),));
+              },
+            ),
+
+            // 🔹 Contacts
+            ListTile(
+              leading: Icon(Icons.contacts, color: Colors.green),
+              title: Text("Contacts"),
+              subtitle: Text("Phone, Email, LinkedIn"),
+              onTap: () {
+                // TODO: Add navigation or dialog
+              },
+            ),
+
+            // 🔹 About App
+            ListTile(
+              leading: Icon(Icons.info, color: Colors.orange),
+              title: Text("About App"),
+              subtitle: Text("More about this application"),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppScreen(),));
+              },
+            ),
+
+            Divider(),
+
+            // 🔹 Logout
+            ListTile(
+              leading: Icon(Icons.logout, color: Colors.red),
+              title: Text("Logout"),
+              onTap: signOut
+            ),
+          ],
+        ),
+      ),
+
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,

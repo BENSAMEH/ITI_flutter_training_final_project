@@ -165,7 +165,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Scaffold(
+        ? Scaffold(appBar: AppBar(),
             backgroundColor:Theme.of(context).scaffoldBackgroundColor,
             body: Center(child: SpinKitItem()),
           )
@@ -269,3 +269,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
           );
   }
 }
+
