@@ -172,7 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         : GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
 
-            child: Scaffold(
+            child: Scaffold(appBar: AppBar(),
               backgroundColor: Colors.white,
               body: SafeArea(
                 child: Form(

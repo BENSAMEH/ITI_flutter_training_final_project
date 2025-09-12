@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
 
 import 'package:login_ui_firebase_auth/Screens/categories_screen.dart';
+import 'package:login_ui_firebase_auth/Screens/contact_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
 import 'package:login_ui_firebase_auth/Screens/home_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/profile_screen.dart';
@@ -77,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                   child: Icon(Icons.person, size: 40, color: Colors.blue),
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),
@@ -85,8 +86,8 @@ class _HomePageState extends State<HomePage> {
             // 🔹 Developer Info
             ListTile(
               leading: Icon(Icons.code, color: Colors.deepPurple),
-              title: Text("Developer Info"),
-              subtitle: Text("Flutter Developer"),
+              title: Text("Developer Info",style: GoogleFonts.rubik(),),
+              subtitle: Text("Flutter Developer",style: GoogleFonts.rubik(),),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => DevInfo(),));
               },
@@ -95,18 +96,18 @@ class _HomePageState extends State<HomePage> {
             // 🔹 Contacts
             ListTile(
               leading: Icon(Icons.contacts, color: Colors.green),
-              title: Text("Contacts"),
-              subtitle: Text("Phone, Email, LinkedIn"),
+              title: Text("Contacts",style: GoogleFonts.rubik(),),
+              subtitle: Text("Phone, Email, LinkedIn",style: GoogleFonts.rubik(),),
               onTap: () {
-                // TODO: Add navigation or dialog
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactScreen(),));
               },
             ),
 
             // 🔹 About App
             ListTile(
               leading: Icon(Icons.info, color: Colors.orange),
-              title: Text("About App"),
-              subtitle: Text("More about this application"),
+              title: Text("About App",style: GoogleFonts.rubik(),),
+              subtitle: Text("More about this application",style: GoogleFonts.rubik(),),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => AboutAppScreen(),));
               },
@@ -117,7 +118,7 @@ class _HomePageState extends State<HomePage> {
             // 🔹 Logout
             ListTile(
               leading: Icon(Icons.logout, color: Colors.red),
-              title: Text("Logout"),
+              title: Text("Logout",style: GoogleFonts.rubik(),),
               onTap: signOut
             ),
           ],
