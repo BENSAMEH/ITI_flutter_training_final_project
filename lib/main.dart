@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:login_ui_firebase_auth/Screens/welcome_screen.dart';
+import 'package:login_ui_firebase_auth/state_management/cart_cubit.dart';
 import 'package:login_ui_firebase_auth/state_management/categories_cubit.dart';
 import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
@@ -15,6 +16,7 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => ProductsCubit()..getProducts()),
         BlocProvider(create: (context) => CategoriesCubit()..getCategories()),
+        BlocProvider(create: (context) => CartCubit()),
       ],
       child: const MyApp(),
     ),
