@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Components/cart_product_card.dart';
 import 'package:login_ui_firebase_auth/state_management/cart_cubit.dart';
 
@@ -10,9 +11,9 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "My Cart",
-          style: TextStyle(color: Colors.black),
+          style: GoogleFonts.rubik(fontWeight: FontWeight.w600,color: Colors.black),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -32,7 +33,7 @@ class CartScreen extends StatelessWidget {
             // حساب السعر الكلي
             double totalPrice = state.cartList.fold(
               0,
-                  (sum, product) => sum + product.price,
+                  (sum, product) => sum + (product.price*product.quantity),
             );
 
             return Column(
@@ -70,7 +71,7 @@ class CartScreen extends StatelessWidget {
                     ],
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Text(
                         "Total:",
@@ -78,7 +79,7 @@ class CartScreen extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
-                      ),
+                      ),Spacer(flex:1,),
                       Text(
                         "\$${totalPrice.toStringAsFixed(2)}",
                         style: TextStyle(
@@ -86,10 +87,19 @@ class CartScreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor,
                         ),
-                      ),
+                      ),Spacer(flex: 5,),
+                     GestureDetector(onTap: () {
+                       context.read<CartCubit>().clearCart();
+                     },
+                       child: Container(height: 30,width: 140,decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+
+                          child: Center(child: Text("Clear Cart",style: GoogleFonts.rubik(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.white),)),
+                        ),
+                     )
+
                     ],
                   ),
-                ),
+                ),SizedBox(height: 20,)
               ],
             );
           }

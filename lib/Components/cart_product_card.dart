@@ -8,9 +8,9 @@ import '../state_management/cart_cubit.dart';
 
 class ProductCartCard extends StatefulWidget {
   Product product;
-  int quantity;
 
-  ProductCartCard({super.key, required this.product,this.quantity=1});
+
+  ProductCartCard({super.key, required this.product});
 
   @override
   State<ProductCartCard> createState() => _ProductCartCardState();
@@ -62,7 +62,7 @@ class _ProductCartCardState extends State<ProductCartCard> {
                     ),
                      SizedBox(height: 6),
                     Text(
-                      "\$${widget.product.price.toStringAsFixed(2)}",
+                      "\$${(widget.product.price*widget.product.quantity).toStringAsFixed(2)}",
                       style:  GoogleFonts.rubik(
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
@@ -77,23 +77,17 @@ class _ProductCartCardState extends State<ProductCartCard> {
                         IconButton(
                           icon: const Icon(Icons.remove_circle_outlined,color: Colors.black,),
                           onPressed: () {
-                            setState(() {
-                              if (amount > 1) {
-                                amount = amount - 1;
-                              }else{context.read<CartCubit>().removeProduct(widget.product);}
-                            });
+                            context.read<CartCubit>().decreaseQuantity(widget.product);
                           },
                         ),
                         Text(
-                          amount.toString(),
+                          widget.product.quantity.toString(),
                           style: GoogleFonts.rubik(fontSize: 16),
                         ),
                         IconButton(
                           icon: const Icon(Icons.add_circle_outlined,color: Colors.black,),
                           onPressed: () {
-                            setState(() {
-                              amount = amount + 1;
-                            });
+                            context.read<CartCubit>().addProduct(widget.product);
                           },
                         ),
                       ],

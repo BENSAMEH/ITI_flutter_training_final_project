@@ -1,7 +1,7 @@
 part of 'cart_cubit.dart';
 
 @immutable
-sealed class CartState { late final List<Product> cartList;
+sealed class CartState {  final List<Product> cartList;
   CartState({required this.cartList});
 }
 
