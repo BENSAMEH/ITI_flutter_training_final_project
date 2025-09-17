@@ -24,19 +24,7 @@ class HomeScreen extends StatelessWidget {
         leading: IconButton(onPressed: () {
           Scaffold.of(context).openDrawer();
         }, icon: Icon(Icons.menu)),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CartScreen()),
-              );
-            },
-            icon: Icon(Icons.shopping_cart,color: Colors.black,),
-          ),
 
-          const SizedBox(width: 20),
-        ],
       ),
 
       body: Padding(

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
+import 'package:login_ui_firebase_auth/Screens/cart_screen.dart';
 
 import 'package:login_ui_firebase_auth/Screens/categories_screen.dart';
 import 'package:login_ui_firebase_auth/Screens/contact_screen.dart';
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   String ?userEmail;
   String ?userName;
   int currentIndex = 1;
-  List screens = [ProfileScreen(), HomeScreen(), CategoriesScreen()];
+  List screens = [CartScreen(), HomeScreen(), CategoriesScreen()];
   final currentUser = FirebaseAuth.instance.currentUser!;
   @override
   void initState() {
@@ -144,7 +145,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
         ],
