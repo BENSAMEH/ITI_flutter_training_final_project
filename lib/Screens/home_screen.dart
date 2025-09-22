@@ -5,13 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 import 'package:login_ui_firebase_auth/Components/head_title.dart';
-import 'package:login_ui_firebase_auth/Screens/about_app_screen.dart';
-import 'package:login_ui_firebase_auth/Screens/dev_info.dart';
+
 import 'package:login_ui_firebase_auth/Components/spin_kit.dart';
 import '../Components/product_item_widget.dart';
 import 'package:login_ui_firebase_auth/state_management/products_cubit.dart';
 
-import 'cart_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,7 +18,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor:Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(elevation: 0,scrolledUnderElevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor:Theme.of(context).appBarTheme.backgroundColor,
         leading: IconButton(onPressed: () {
           Scaffold.of(context).openDrawer();
         }, icon: Icon(Icons.menu)),

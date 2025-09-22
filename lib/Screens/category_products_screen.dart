@@ -34,7 +34,7 @@ class CategoryProductsScreen extends StatelessWidget {
             SizedBox(width: 10),
           ],
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           child: Column(

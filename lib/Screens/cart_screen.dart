@@ -12,12 +12,12 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "My Cart",
-          style: GoogleFonts.rubik(fontWeight: FontWeight.w600,color: Colors.black),
+          "My Cart 🛒",
+          style: GoogleFonts.rubik(fontWeight: FontWeight.w600,color:Theme.of(context).appBarTheme.foregroundColor),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+       
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: BlocBuilder<CartCubit, CartState>(
@@ -25,7 +25,7 @@ class CartScreen extends StatelessWidget {
           if (state.cartList.isEmpty) {
             return const Center(
               child: Text(
-                "Your cart is empty",
+                "Your cart is empty 🛒",
                 style: TextStyle(fontSize: 18),
               ),
             );

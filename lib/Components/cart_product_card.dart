@@ -25,7 +25,7 @@ class _ProductCartCardState extends State<ProductCartCard> {
       Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsScreen(product: widget.product),));
     },
       child: Card(
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         margin: const EdgeInsets.symmetric(vertical: 8),
         elevation: 3,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

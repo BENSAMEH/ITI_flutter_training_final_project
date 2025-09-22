@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:login_ui_firebase_auth/Screens/cart_screen.dart';
 
 import '../Models/product_model.dart';
-import '../Models/product_model.dart';
+
 import '../state_management/cart_cubit.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -27,15 +27,15 @@ class _DetailsScreenState extends State<DetailsScreen> {
           style: GoogleFonts.rubik(
             fontSize: 25,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).appBarTheme.foregroundColor,
           ),
         ),
 
         centerTitle: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon:  Icon(Icons.arrow_back, color: Theme.of(context).appBarTheme.foregroundColor),
         ),
         actions: [
           SizedBox(width: 15),

@@ -173,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             onTap: () => FocusScope.of(context).unfocus(),
 
             child: Scaffold(appBar: AppBar(),
-              backgroundColor: Colors.white,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               body: SafeArea(
                 child: Form(
                   key: _formKey,
