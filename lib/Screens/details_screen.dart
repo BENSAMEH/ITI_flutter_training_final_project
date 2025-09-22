@@ -145,7 +145,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: Center(
                   child: Text(
                     "Add To Cart",
-                    style: GoogleFonts.rubik(color: Colors.white, fontSize: 25),
+                    style: GoogleFonts.rubik(color: Theme.of(context).appBarTheme.backgroundColor, fontSize: 25),
                   ),
                 ),
               ),
