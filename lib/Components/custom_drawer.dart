@@ -77,7 +77,7 @@ class CustomDrawer extends StatelessWidget {
               leading: Icon(Icons.logout, color: Colors.red),
               title: Text("Logout",style: GoogleFonts.rubik(fontWeight: FontWeight.bold),),
               onTap:signOut
-          ),SwitchListTile(
+          ),Divider(),SwitchListTile(
             title:  Text("Dark Mode",style:GoogleFonts.rubik(fontWeight: FontWeight.bold)),
             value: context.read<ThemeCubit>().state == ThemeMode.dark,
             onChanged: (val) {
