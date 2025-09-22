@@ -17,7 +17,7 @@ class CartScreen extends StatelessWidget {
         ),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         elevation: 0,
-       
+
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: BlocBuilder<CartCubit, CartState>(
@@ -57,7 +57,7 @@ class CartScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 20, vertical: 15),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).cardColor,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
@@ -93,13 +93,13 @@ class CartScreen extends StatelessWidget {
                      },
                        child: Container(height: 30,width: 140,decoration: BoxDecoration(color: Theme.of(context).primaryColor),
 
-                          child: Center(child: Text("Clear Cart",style: GoogleFonts.rubik(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.white),)),
+                          child: Center(child: Text("Clear Cart",style: GoogleFonts.rubik(fontSize: 20,fontWeight: FontWeight.w600,color: Theme.of(context).appBarTheme.backgroundColor),)),
                         ),
                      )
 
                     ],
                   ),
-                ),SizedBox(height: 20,)
+                ),SizedBox(height: 2,)
               ],
             );
           }

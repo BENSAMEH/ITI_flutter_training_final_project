@@ -32,7 +32,7 @@ class CustomDrawer extends StatelessWidget {
               accountEmail: Text(userEmail.isNotEmpty == true ? userEmail : "Loading...",style: GoogleFonts.rubik(fontSize: 15,fontWeight: FontWeight.w600),),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
-                child: Icon(Icons.person, size: 40, color: Colors.blue),
+                child: Icon(Icons.person, size: 40, color: Colors.black),
               ),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,

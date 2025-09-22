@@ -16,7 +16,7 @@ class CustomBottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       elevation: 0,
       selectedLabelStyle: GoogleFonts.rubik(
-        color: Colors.white,
+        color: Theme.of(context).bottomAppBarTheme.color,
         fontWeight: FontWeight.bold,
       ),
       iconSize: 35,
@@ -24,7 +24,7 @@ class CustomBottomNavBar extends StatelessWidget {
       unselectedItemColor: Colors.grey.shade700,
       unselectedLabelStyle: GoogleFonts.rubik(fontWeight: FontWeight.w500),
       currentIndex: currentIndex,
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).bottomAppBarTheme.color,
       onTap: onTap, // 👈 بناخدها من الـHomePage
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: ""),

@@ -69,7 +69,7 @@ class ProductItemWidget extends StatelessWidget {
                       style: GoogleFonts.rubik(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Theme.of(context).appBarTheme.foregroundColor,
                       ),
                     ),
                   ),
@@ -77,7 +77,7 @@ class ProductItemWidget extends StatelessWidget {
                 SizedBox(height: 30),
                 Text(
                   '\$${product.price}',
-                  style: GoogleFonts.rubik(fontSize: 14, color: Colors.black),
+                  style: GoogleFonts.rubik(fontSize: 14, color:Theme.of(context).appBarTheme.foregroundColor),
                 ),
               ],
             ),

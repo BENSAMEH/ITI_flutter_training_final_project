@@ -75,7 +75,7 @@ class _ProductCartCardState extends State<ProductCartCard> {
                     Row(
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.remove_circle_outlined,color: Colors.black,),
+                          icon:  Icon(Icons.remove_circle_outlined,color: Theme.of(context).appBarTheme.foregroundColor,),
                           onPressed: () {
                             context.read<CartCubit>().decreaseQuantity(widget.product);
                           },
@@ -85,7 +85,7 @@ class _ProductCartCardState extends State<ProductCartCard> {
                           style: GoogleFonts.rubik(fontSize: 16),
                         ),
                         IconButton(
-                          icon: const Icon(Icons.add_circle_outlined,color: Colors.black,),
+                          icon:  Icon(Icons.add_circle_outlined,color: Theme.of(context).appBarTheme.foregroundColor,),
                           onPressed: () {
                             context.read<CartCubit>().addProduct(widget.product);
                           },

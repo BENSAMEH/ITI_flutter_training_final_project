@@ -76,7 +76,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                   offset: const Offset(0, 3),
                                 ),
                               ],
-                              color: Theme.of(context).primaryColor,
+                              color: Theme.of(context).cardColor,
                               borderRadius: BorderRadius.circular(12),
                             ),
                             padding: const EdgeInsets.all(12),
@@ -84,7 +84,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             child: Text(
                               category.name ?? 'No Name',
                               style: GoogleFonts.rubik(
-                                color: Colors.white,
+                                color: Theme.of(context).appBarTheme.foregroundColor,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                               ),

@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, ThemeMode>( // 👈 نسمع للثيم
+    return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, themeMode) {
         return MaterialApp(
           theme: ThemeData(
             primaryColor: const Color(0xffff8383),
+            bottomAppBarTheme: BottomAppBarTheme(color:Color(0xffff8383) ),
             cardColor: Colors.white,
             brightness: Brightness.light,
             primarySwatch: Colors.blue,
@@ -48,8 +49,9 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.dark,
             primarySwatch: Colors.deepPurple,
             scaffoldBackgroundColor: Colors.black,
-            primaryColor: Colors.grey[900],
+            primaryColor: Colors.white,bottomAppBarTheme: BottomAppBarTheme(color: Colors.black),
             cardColor: Colors.grey[800],
+
             appBarTheme: const AppBarTheme(
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
