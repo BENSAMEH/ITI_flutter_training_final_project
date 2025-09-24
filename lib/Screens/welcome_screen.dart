@@ -95,7 +95,7 @@ class WelcomeScreen extends StatelessWidget {
                             child: Icon(
                               Icons.arrow_right_alt,
                               size: 40,
-                              color: Colors.white,
+                              color: Theme.of(context).appBarTheme.backgroundColor,
                             ),
                           ),
                         ),
