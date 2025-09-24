@@ -115,7 +115,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                 ),
                                 prefixIcon: Image.asset(
-                                  'assets/images/mailicon.png',
+                                  'assets/images/mailicon.png',color: Theme.of(context).appBarTheme.foregroundColor,
                                 ),
                                 hintText: "enter your email",
                                 hintStyle: GoogleFonts.rubik(
@@ -182,7 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 prefixIcon: Image.asset(
                                   'assets/images/passwordicon.png',
-                                  color: Colors.black45,
+                                  color: Theme.of(context).appBarTheme.foregroundColor,
                                 ),
                                 hintText: "enter your password",
                                 hintStyle: GoogleFonts.rubik(
@@ -222,7 +222,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     ? Icon(
                                         Icons.check,
                                         size: 15,
-                                        color: Colors.white,
+                                        color: Theme.of(context).appBarTheme.backgroundColor,
                                       )
                                     : null,
                               ),
@@ -309,7 +309,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               child: Text(
                                 "Login",
                                 style: GoogleFonts.rubik(
-                                  color: Colors.white,
+                                  color: Theme.of(context).appBarTheme.backgroundColor,
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -326,7 +326,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             Text(
                               "Don’t have an Account ?",
                               style: GoogleFonts.rubik(
-                                color: Colors.black,
+                                color: Theme.of(context).appBarTheme.foregroundColor,
                                 fontSize: 20,
                               ),
                             ),

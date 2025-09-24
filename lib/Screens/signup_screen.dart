@@ -84,7 +84,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         label: "Email",
                         controller: emailController,
                         hint: "enter your email",
-                        icon: Image.asset('assets/images/mailicon.png'),
+                        icon: Image.asset('assets/images/mailicon.png',color: Theme.of(context).appBarTheme.foregroundColor,),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter your email';
@@ -106,7 +106,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         hint: "enter your password",
                         icon: Image.asset(
                           'assets/images/passwordicon.png',
-                          color: Colors.black45,
+                          color: Theme.of(context).appBarTheme.foregroundColor,
                         ),
                         isPassword: true,
                         validator: (value) {
@@ -126,7 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         hint: "re-enter your password",
                         icon: Image.asset(
                           'assets/images/passwordicon.png',
-                          color: Colors.black45,
+                          color: Theme.of(context).appBarTheme.foregroundColor,
                         ),
                         isPassword: true,
                         validator: (value) {
@@ -185,7 +185,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               child: Text(
                                 "Sign Up",
                                 style: GoogleFonts.rubik(
-                                  color: Colors.white,
+                                  color: Theme.of(context).appBarTheme.backgroundColor,
                                   fontSize: 24,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -203,7 +203,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             Text(
                               "Already have an Account ?",
                               style: GoogleFonts.rubik(
-                                color: Colors.black,
+                                color: Theme.of(context).appBarTheme.foregroundColor,
                                 fontSize: 20,
                               ),
                             ),
