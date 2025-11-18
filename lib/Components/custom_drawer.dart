@@ -2,12 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../Screens/about_app_screen.dart';
 import '../Screens/contact_screen.dart';
 import '../Screens/dev_info.dart';
 import '../Screens/profile_screen.dart';
-
 import '../state_management/theme_cubit.dart';
 
 class CustomDrawer extends StatelessWidget {

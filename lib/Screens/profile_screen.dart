@@ -226,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 child: Text(
                                   "Update",
                                   style: GoogleFonts.rubik(
-                                    color: Colors.white,
+                                    color: Theme.of(context).appBarTheme.backgroundColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.w600,
                                   ),

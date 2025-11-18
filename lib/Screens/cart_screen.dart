@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "My Cart 🛒",
+          "My Cart ",
           style: GoogleFonts.rubik(fontWeight: FontWeight.w600,color:Theme.of(context).appBarTheme.foregroundColor),
         ),
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
