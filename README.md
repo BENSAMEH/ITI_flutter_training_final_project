@@ -1,5 +1,4 @@
 # 🛍️ ShopEase — Flutter E-Commerce App
-
 A full-featured mobile e-commerce application built with Flutter as the final project for the **ITI (Information Technology Institute) Flutter Training Program**.
 
 ---
@@ -7,10 +6,10 @@ A full-featured mobile e-commerce application built with Flutter as the final pr
 ## 📱 Screenshots
 
 <p align="center">
-  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143225.png" width="200"/>
-  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143333.png" width="200"/>
-  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143349.png" width="200"/>
-  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143419.png" width="200"/>
+  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143225.png?raw=true" width="200"/>
+  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143333.png?raw=true" width="200"/>
+  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143349.png?raw=true" width="200"/>
+  <img src="https://github.com/BENSAMEH/ITI_flutter_training_final_project/blob/main/ScreenShots/Screenshot_20250820_143419.png?raw=true" width="200"/>
 </p>
 
 ---
@@ -52,15 +51,15 @@ A full-featured mobile e-commerce application built with Flutter as the final pr
 ### Installation
 
 1. **Clone the repository**
-   ```bash
+```bash
    git clone https://github.com/BENSAMEH/ITI_flutter_training_final_project.git
    cd ITI_flutter_training_final_project
-   ```
+```
 
 2. **Install dependencies**
-   ```bash
+```bash
    flutter pub get
-   ```
+```
 
 3. **Configure Firebase**
    - Create a project at [Firebase Console](https://console.firebase.google.com/)
@@ -70,15 +69,13 @@ A full-featured mobile e-commerce application built with Flutter as the final pr
    - Place them in the appropriate platform folders
 
 4. **Run the app**
-   ```bash
+```bash
    flutter run
-   ```
+```
 
 ---
 
 ## 📁 Project Structure
-
-```
 lib/
 ├── main.dart               # App entry point
 ├── models/                 # Data models
@@ -90,7 +87,6 @@ lib/
 │   └── cart/               # Cart & checkout
 ├── widgets/                # Reusable UI components
 └── services/               # API & Firebase services
-```
 
 ---
 
